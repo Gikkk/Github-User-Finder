@@ -5,26 +5,32 @@ import { HttpClient} from '@angular/common/http';
 export class HttpService{
   constructor(private http: HttpClient) {}
 
-  data = "https://api.github.com/users/vaxosv";
+  info = "https://api.github.com/users/vaxosv";
   repo = "https://api.github.com/users/vaxosv/repos";
   followers = "https://api.github.com/users/vaxosv/followers";
   following = "https://api.github.com/users/vaxosv/following";
 
   onLoadData(){
-    this.http.get(this.data)
+    this.http.get(this.info)
     .subscribe(responseData =>{
-      // document.querySelector(".account__avatar").src = `${responseData.avatar_url}`;
-      // document.querySelector(".account__created").textContent = `created: ${responseData.created_at}`;
-      // document.querySelector(".account__followers").textContent = `followers: ${responseData.followers}`;
-      // document.querySelector(".account__type").textContent = `type: ${responseData.type}`;
-      // document.querySelector(".account__login").textContent = `login: ${responseData.login}`;
-      // document.querySelector(".account__name").textContent = `name: ${responseData.name}`;
-      // document.querySelector(".account__location").textContent = `Location: ${responseData.location}`;
-      // document.querySelector(".account__repo").textContent = `repositories: ${responseData.public_repos}`;
-      // document.querySelector(".account__repo").textContent = `repositories: ${responseData.public_repos}`;
-      // document.querySelector(".account__updated").textContent = `update time: ${responseData.updated_at}`;
-      // document.querySelector(".account__url").setAttribute("href", `${responseData.html_url}`);
-      // document.querySelector(".account__following").textContent = `following: ${responseData.following}`;
+      let info: any = responseData;
+      document.querySelector(".account__avatar").innerHTML = `<img src="${info.avatar_url}" class="account__avatar-highlighted" alt="avatar" >`
+      document.querySelector(".account__created--highlighted").textContent = `${info.created_at.slice(0, 10)}`;
+      document.querySelector(".account__followers--highlighted").textContent = `${info.followers}`;
+      document.querySelector(".account__type--highlighted").textContent = `${info.type}`;
+      document.querySelector(".account__login--highlighted").textContent = `${info.login}`;
+      document.querySelector(".account__username--highlighted").textContent = `${info.name}`;
+      document.querySelector(".account__location--highlighted").textContent = `${info.location}`;
+      document.querySelector(".account__repo--highlighted").textContent = `${info.public_repos}`;
+      document.querySelector(".account__updated--highlighted").textContent = `${info.updated_at.slice(0, 10)}`;
+      document.querySelector(".account__url").setAttribute("href", `${info.html_url}`);
+      document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
+      if(info.name === null){
+        document.querySelector(".account__username--highlighted").textContent = 'Not mentioned';
+      }
+      if(info.location === null){
+        document.querySelector(".account__location--highlighted").textContent = 'Not mentioned';
+      }
     }, error => {
       console.log(error);
     })
@@ -34,6 +40,8 @@ export class HttpService{
     this.http.get(this.repo)
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
+      console.log(repoInfo);
+
       const repoContainer = document.querySelector('.repo__container');
 
       repoInfo.forEach(repo => {
@@ -51,15 +59,15 @@ export class HttpService{
   onLoadFollowers(){
     this.http.get(this.followers)
     .subscribe(responseData =>{
-      console.log(responseData);
       const followersInfo: any =  responseData;
-      const followersContainer = document.querySelector('.repo__container');
+      const followersContainer = document.querySelector('.followers__container');
 
       followersInfo.forEach(followers => {
         const followersList = document.createElement('section');
         followersList.innerHTML = `
-          <h2 class="">${followers.name}</h2>
-          <a href="">${followers.avatar_url}<a/>`
+          <h3 class="">${followers.login}</h3>
+          <img src="${followers.avatar_url}" alt="followers img">
+          <a href="${followers.html_url}" target = "_blanck">For more info<a/>`
         followersContainer.appendChild(followersList);
       })
     }, error => {
@@ -70,7 +78,17 @@ export class HttpService{
   onLoadFollowing(){
     this.http.get(this.following)
     .subscribe(responseData =>{
-      console.log(responseData);
+      const followingInfo: any =  responseData;
+      const followingContainer = document.querySelector('.following__container');
+
+      followingInfo.forEach(following => {
+        const followingList = document.createElement('section');
+        followingList.innerHTML = `
+          <h2 class="">${following.login}</h2>
+          <img src="${following.avatar_url}" alt="followers img">
+          <a href="${following.html_url}" target = "_blanck">For more info<a/>`
+        followingContainer.appendChild(followingList);
+      })
     }, error => {
       console.log(error);
     })

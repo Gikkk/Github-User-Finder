@@ -1,0 +1,11 @@
+.account{
+  font-family: $secondary-font;
+  padding: 2rem;
+  text-align: center;
+
+  &__avatar-highlighted{
+    width: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+}

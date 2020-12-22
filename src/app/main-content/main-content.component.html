@@ -1,23 +1,32 @@
 <main class="account">
-  <img src="" alt="avatar" class="account__avatar">
-  <p class="account__type"></p>
-  <p class="account__login"></p>
-  <p class="account__name"></p>
-  <p class="account__location"></p>
+  <a href="" class="account__url" target="_blanck">
+    <div class="account__avatar">
+      <!-- avatar img -->
+    </div>
+    Click on photo to see profile
+  </a>
+  <p class="account__type">Account type: <span class="account__type--highlighted"></span></p>
+  <p class="account__login">Username: <span class="account__login--highlighted"></span></p>
+  <p class="account__username">Name: <span class="account__username--highlighted"></span></p>
+  <p class="account__location">Location: <span class="account__location--highlighted"></span></p>
+  <p class="account__created">Creation time: <span class="account__created--highlighted"></span></p>
+  <p class="account__updated">Update time: <span class="account__updated--highlighted"></span> </p>
 
-  <!-- <p class="account__repo"></p>
+  <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
+  <button (click) = "onLoadRepo()">More Repo</button>
   <article class="repo__container">
+    <!-- repo list -->
+  </article>
 
-  </article> -->
-
-  <p class="account__created"></p>
-  <p class="account__updated"></p>
-  <a href="" class="account__url" target="_blanck">account url</a>
-
-  <p class="account__followers"></p>
+  <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
+  <button (click) = 'onLoadFollowers()'> More Followers</button>
   <article class="followers__container">
     <!-- followers list here -->
   </article>
 
-  <p class="account__following"></p>
+  <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
+  <button (click) = 'onLoadFollowing()'>More Following</button>
+  <article class="following__container">
+    <!-- followers list here -->
+  </article>
 </main>

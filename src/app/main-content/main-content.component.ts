@@ -16,7 +16,7 @@ export class MainContentComponent implements OnInit {
     this.httpService.onLoadData();
   }
   onLoadRepo(){
-    // this.httpService.onLoadRepo();
+    this.httpService.onLoadRepo();
   }
   onLoadFollowers(){
     this.httpService.onLoadFollowers();
@@ -28,25 +28,5 @@ export class MainContentComponent implements OnInit {
 
   ngOnInit(){
     this.onLoadData();
-    this.onLoadRepo();
-    this.onLoadFollowers();
-    this.onLoadFollowing();
   }
 }
-
-
-    // const getfollowers = () => {
-    //   sendHttpRequest('GET', 'https://api.github.com/users/vaxosv/followers').then(responseData => {
-    //     console.log(responseData);
-    //     document.getElementById("test10").src = `${responseData[0].avatar_url}`;
-    //   });
-    // };
-    // getfollowers()
-
-    // const getfollowing = () => {
-    //   sendHttpRequest('GET', 'https://api.github.com/users/vaxosv/following').then(responseData => {
-    //     console.log(responseData);
-    //     document.getElementById("test12").src = `${responseData[0].avatar_url}`;
-    //   });
-    // };
-    // getfollowing()

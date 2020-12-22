@@ -1,6 +1,7 @@
 .header{
   background: $bg;
   color: $primary-color;
+  font-family: $primary-font;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,7 +9,6 @@
 }
 
 .header__text{
-  font-size: 1.5rem;
   margin: 0;
 }
 
