@@ -40,16 +40,15 @@ export class HttpService{
     this.http.get(this.repo)
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
-      console.log(repoInfo);
-
       const repoContainer = document.querySelector('.repo__container');
 
       repoInfo.forEach(repo => {
         const repoList = document.createElement('section');
+        repoList.classList.add('repo__items')
         repoList.innerHTML = `
-          <h2 class="">${repo.name}</h2>
+          <h2>${repo.name}</h2>
           <p>Main language: ${repo.language}</p>
-          <a href="${repo.html_url}">More info<a/>`
+          <a href="${repo.html_url}" class="repo__btn">More info<a/>`
         repoContainer.appendChild(repoList);
       })
     }, error => {
@@ -65,6 +64,7 @@ export class HttpService{
 
       followersInfo.forEach(followers => {
         const followersList = document.createElement('section');
+        followersList.classList.add('follow__items');
         followersList.innerHTML = `
           <h3 class="follow__header">${followers.login}</h3>
           <img src="${followers.avatar_url}" alt="followers img" class="follow__img">
@@ -84,8 +84,9 @@ export class HttpService{
 
       followingInfo.forEach(following => {
         const followingList = document.createElement('section');
+        followingList.classList.add('follow__items');
         followingList.innerHTML = `
-          <h2 class="follow__header">${following.login}</h2>
+          <h3 class="follow__header">${following.login}</h3>
           <img src="${following.avatar_url}" alt="followers img" class="follow__img">
           <a href="${following.html_url}" target = "_blanck" class="follow__btn">More info<a/>`
         followingContainer.appendChild(followingList);

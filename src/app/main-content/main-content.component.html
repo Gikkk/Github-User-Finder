@@ -28,22 +28,26 @@
     </section>
   </article>
   <article class="additional">
-    <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
-    <button (click) = "getRepo()">SHOW MORE</button>
-    <section class="repo__container">
-      <!-- repo list -->
+    <section>
+      <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
+      <button (click) = "getRepo()" class="main__btn">SHOW MORE</button>
+      <section class="repo__container">
+        <!-- repo list -->
+      </section>
     </section>
-
-    <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
-    <button (click) = 'getFollowers()'>SHOW MORE</button>
-    <section class="followers__container">
-      <!-- followers list here -->
+    <section>
+      <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
+      <button (click) = 'getFollowers()' class="main__btn">SHOW MORE</button>
+      <section class="followers__container">
+        <!-- followers list here -->
+      </section>
     </section>
-
-    <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
-    <button (click) = 'getFollowing()'>SHOW MORE</button>
-    <section class="following__container">
-      <!-- followers list here -->
+    <section>
+      <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
+      <button (click) = 'getFollowing()' class="main__btn">SHOW MORE</button>
+      <section class="following__container">
+        <!-- followers list here -->
+      </section>
     </section>
   </article>
 </main>

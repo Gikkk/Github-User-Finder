@@ -49,6 +49,17 @@
     margin: 3rem 0 1rem 0;
   }
 
+  .repo__items{
+    font-family: $secondary-font;
+    margin-top: 4rem;
+  }
+
+  .repo__btn{
+    color: $secondary-color;
+    font-family: $primary-font;
+    font-size: 1rem;
+  }
+
   &__followers{
     color: $secondary-color;
     margin: 3rem 0 1rem 0;
@@ -59,6 +70,10 @@
     margin: 3rem 0 1rem 0;
   }
 
+  .follow__items{
+    margin-top: 4rem;
+  }
+
   .follow__header{
     font-family: $secondary-font;
   }
@@ -66,9 +81,10 @@
   .follow__img{
     width: 100%;
     border-radius: 50%;
+    object-fit: contain;
   }
 
   .follow__btn{
-    color: $primary-color;
+    color: $secondary-color;
   }
 }
