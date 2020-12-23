@@ -6,12 +6,14 @@
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
+
+  &__text{
+    margin: 0;
+  }
+
+  &__logo{
+    fill: $primary-color;
+  }
 }
 
-.header__text{
-  margin: 0;
-}
 
-.header__logo{
-  fill: $primary-color;
-}

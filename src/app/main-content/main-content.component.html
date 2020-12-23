@@ -1,32 +1,49 @@
 <main class="account">
-  <a href="" class="account__url" target="_blanck">
-    <div class="account__avatar">
-      <!-- avatar img -->
-    </div>
-    Click on photo to see profile
-  </a>
-  <p class="account__type">Account type: <span class="account__type--highlighted"></span></p>
-  <p class="account__login">Username: <span class="account__login--highlighted"></span></p>
-  <p class="account__username">Name: <span class="account__username--highlighted"></span></p>
-  <p class="account__location">Location: <span class="account__location--highlighted"></span></p>
-  <p class="account__created">Creation time: <span class="account__created--highlighted"></span></p>
-  <p class="account__updated">Update time: <span class="account__updated--highlighted"></span> </p>
-
-  <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
-  <button (click) = "onLoadRepo()">More Repo</button>
-  <article class="repo__container">
-    <!-- repo list -->
+  <article>
+    <section class="account__link">
+      <a href="" class="account__url" target="_blanck">
+        <div class="account__avatar">
+          <!-- avatar img -->
+        </div>
+        Click on photo to see github profile
+      </a>
+    </section>
+    <section class="account__details">
+      <section class="account__info">
+        <p class="account__type">Account type:</p>
+        <p class="account__login">Username:</p>
+        <p class="account__username">Name:</p>
+        <p class="account__location">Location:</p>
+        <p class="account__created">Creation time:</p>
+        <p class="account__updated">Last update:</p>
+      </section>
+      <section class="account__info--highlighted">
+        <p class="account__type--highlighted"></p>
+        <p class="account__login--highlighted"></p>
+        <p class="account__username--highlighted"></p>
+        <p class="account__location--highlighted"></p>
+        <p class="account__created--highlighted"></p>
+        <p class="account__updated--highlighted"></p>
+      </section>
+    </section>
   </article>
+  <article class="additional">
+    <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
+    <button (click) = "getRepo()">SHOW MORE</button>
+    <section class="repo__container">
+      <!-- repo list -->
+    </section>
 
-  <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
-  <button (click) = 'onLoadFollowers()'> More Followers</button>
-  <article class="followers__container">
-    <!-- followers list here -->
-  </article>
+    <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
+    <button (click) = 'getFollowers()'>SHOW MORE</button>
+    <section class="followers__container">
+      <!-- followers list here -->
+    </section>
 
-  <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
-  <button (click) = 'onLoadFollowing()'>More Following</button>
-  <article class="following__container">
-    <!-- followers list here -->
+    <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
+    <button (click) = 'getFollowing()'>SHOW MORE</button>
+    <section class="following__container">
+      <!-- followers list here -->
+    </section>
   </article>
 </main>

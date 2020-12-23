@@ -36,7 +36,7 @@ export class HttpService{
     })
   }
 
-  onLoadRepo(){
+  getRepo(){
     this.http.get(this.repo)
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
@@ -48,7 +48,8 @@ export class HttpService{
         const repoList = document.createElement('section');
         repoList.innerHTML = `
           <h2 class="">${repo.name}</h2>
-          <a href="">${repo.html_url}<a/>`
+          <p>Main language: ${repo.language}</p>
+          <a href="${repo.html_url}">More info<a/>`
         repoContainer.appendChild(repoList);
       })
     }, error => {
@@ -56,7 +57,7 @@ export class HttpService{
     })
   }
 
-  onLoadFollowers(){
+  getFollowers(){
     this.http.get(this.followers)
     .subscribe(responseData =>{
       const followersInfo: any =  responseData;
@@ -65,9 +66,9 @@ export class HttpService{
       followersInfo.forEach(followers => {
         const followersList = document.createElement('section');
         followersList.innerHTML = `
-          <h3 class="">${followers.login}</h3>
-          <img src="${followers.avatar_url}" alt="followers img">
-          <a href="${followers.html_url}" target = "_blanck">For more info<a/>`
+          <h3 class="follow__header">${followers.login}</h3>
+          <img src="${followers.avatar_url}" alt="followers img" class="follow__img">
+          <a href="${followers.html_url}" target = "_blanck" class="follow__btn">More info<a/>`
         followersContainer.appendChild(followersList);
       })
     }, error => {
@@ -75,7 +76,7 @@ export class HttpService{
     })
   }
 
-  onLoadFollowing(){
+  getFollowing(){
     this.http.get(this.following)
     .subscribe(responseData =>{
       const followingInfo: any =  responseData;
@@ -84,9 +85,9 @@ export class HttpService{
       followingInfo.forEach(following => {
         const followingList = document.createElement('section');
         followingList.innerHTML = `
-          <h2 class="">${following.login}</h2>
-          <img src="${following.avatar_url}" alt="followers img">
-          <a href="${following.html_url}" target = "_blanck">For more info<a/>`
+          <h2 class="follow__header">${following.login}</h2>
+          <img src="${following.avatar_url}" alt="followers img" class="follow__img">
+          <a href="${following.html_url}" target = "_blanck" class="follow__btn">More info<a/>`
         followingContainer.appendChild(followingList);
       })
     }, error => {

@@ -15,14 +15,14 @@ export class MainContentComponent implements OnInit {
   onLoadData() {
     this.httpService.onLoadData();
   }
-  onLoadRepo(){
-    this.httpService.onLoadRepo();
+  getRepo(){
+    this.httpService.getRepo();
   }
-  onLoadFollowers(){
-    this.httpService.onLoadFollowers();
+  getFollowers(){
+    this.httpService.getFollowers();
   }
-  onLoadFollowing(){
-    this.httpService.onLoadFollowing();
+  getFollowing(){
+    this.httpService.getFollowing();
   }
 
 

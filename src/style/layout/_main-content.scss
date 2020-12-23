@@ -1,11 +1,74 @@
 .account{
   font-family: $secondary-font;
-  padding: 2rem;
-  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  color: $primary-color;
+  background: $bg;
+  font-size: 1rem;
+
+  // profile link
+  &__link{
+    text-align: center;
+  }
+
+  &__url{
+    text-decoration: none;
+    color: $secondary-color;
+  }
 
   &__avatar-highlighted{
     width: 100%;
     object-fit: contain;
     border-radius: 50%;
+  }
+
+  &__details{
+    display: flex;
+    padding: 1em 0;
+    font-size: 4.5vw;
+  }
+
+  &__info{
+    letter-spacing: 2px;
+  }
+
+  &__info--highlighted{
+    padding-left: 3em;
+    color: rgb(11, 16, 43);
+    font-weight: 700;
+  }
+
+  .additional{
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: $primary-font;
+  }
+
+  &__repo{
+    color: $secondary-color;
+    margin: 3rem 0 1rem 0;
+  }
+
+  &__followers{
+    color: $secondary-color;
+    margin: 3rem 0 1rem 0;
+  }
+
+  &__following{
+    color:  $secondary-color;
+    margin: 3rem 0 1rem 0;
+  }
+
+  .follow__header{
+    font-family: $secondary-font;
+  }
+
+  .follow__img{
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  .follow__btn{
+    color: $primary-color;
   }
 }
