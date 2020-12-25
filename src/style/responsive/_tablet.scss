@@ -1,7 +1,60 @@
 @media(min-width: 640px){
-  .additional{
+  .header__text{
+    font-size: 3vw;
+
+    &__logo{
+      height: 100px;
+    }
+  }
+
+  .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+
+  .account{
+    
+    padding: 2rem;
+
+    &__details{
+      font-size: 2.5vw;
+    }
+
+    &__url{
+      font-size: 1.5vw;
+    }
+
+    .additional{
+      text-align: left;
+    }
+
+    .repo__container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 16px;
+      text-align: center;
+    }
+
+    .following__container{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 32px;
+      row-gap: 32px;
+      text-align: center;
+    }
+
+    .followers__container{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 32px;
+      row-gap: 32px;
+      text-align: center;
+    }
+  }
+}
+@media(min-width: 1024px){
+  .account{
+    padding: 5rem;
   }
 }

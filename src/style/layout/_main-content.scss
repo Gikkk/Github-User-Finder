@@ -13,7 +13,8 @@
 
   &__url{
     text-decoration: none;
-    color: $secondary-color;
+    color: $primary-color;
+    font-size: 2.5vw;
   }
 
   &__avatar-highlighted{
@@ -25,7 +26,7 @@
   &__details{
     display: flex;
     padding: 1em 0;
-    font-size: 4.5vw;
+    font-size: 4vw;
   }
 
   &__info{
@@ -49,9 +50,16 @@
     margin: 3rem 0 1rem 0;
   }
 
+  .repo__container{
+    display: grid;
+    row-gap: 2rem;
+  }
+
   .repo__items{
     font-family: $secondary-font;
-    margin-top: 4rem;
+    background: rgb(114, 70, 70);
+    padding: 1rem 0;
+    border-radius: 10px;
   }
 
   .repo__btn{
@@ -76,6 +84,8 @@
 
   .follow__header{
     font-family: $secondary-font;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
   }
 
   .follow__img{
