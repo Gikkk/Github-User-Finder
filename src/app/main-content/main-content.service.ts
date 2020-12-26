@@ -5,10 +5,10 @@ import { HttpClient} from '@angular/common/http';
 export class HttpService{
   constructor(private http: HttpClient) {}
 
-  info = "https://api.github.com/users/vaxosv";
-  repo = "https://api.github.com/users/vaxosv/repos";
-  followers = "https://api.github.com/users/vaxosv/followers";
-  following = "https://api.github.com/users/vaxosv/following";
+  info = "https://api.github.com/users/safareli";
+  repo = "https://api.github.com/users/safareli/repos";
+  followers = "https://api.github.com/users/safareli/followers";
+  following = "https://api.github.com/users/safareli/following";
 
   onLoadData(){
     this.http.get(this.info)
@@ -46,7 +46,7 @@ export class HttpService{
         const repoList = document.createElement('section');
         repoList.classList.add('repo__items')
         repoList.innerHTML = `
-          <h2>${repo.name}</h2>
+          <h2>${repo.name.slice(0, 10)}</h2>
           <p>Main language: ${repo.language}</p>
           <a href="${repo.html_url}" class="repo__btn">More info<a/>`
         repoContainer.appendChild(repoList);

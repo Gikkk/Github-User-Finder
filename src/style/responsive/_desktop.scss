@@ -1,0 +1,23 @@
+@media(min-width: 1024px){
+
+  .header__logo{
+    height: 100px;
+    width: 100px;
+  }
+
+  .account{
+    padding: 5rem;
+
+    .repo__container{
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .following__container{
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .followers__container{
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
