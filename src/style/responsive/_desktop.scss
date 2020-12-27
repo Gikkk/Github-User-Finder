@@ -1,5 +1,4 @@
 @media(min-width: 1024px){
-
   .header__logo{
     height: 100px;
     width: 100px;
@@ -7,9 +6,24 @@
 
   .account{
     padding: 5rem;
+  }
+
+  .additional{
+
+    .account__repo{
+      font-size: 2rem;
+    }
+
+    .account__followers{
+      font-size: 2rem;
+    }
+
+    .account__following{
+      font-size: 2rem;
+    }
 
     .repo__container{
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .following__container{
@@ -21,3 +35,42 @@
     }
   }
 }
+
+@media(min-width: 1600px){
+  .account{
+    padding: 7rem;
+  }
+
+  .account__repo{
+    font-size: 2rem;
+  }
+
+  .account__followers{
+    font-size: 2rem;
+  }
+
+  .account__following{
+    font-size: 2rem;
+  }
+
+  .additional{
+    .repo__container{
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 40px;
+      row-gap: 40px;
+    }
+
+    .following__container{
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 40px;
+      row-gap: 40px;
+    }
+
+    .followers__container{
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 40px;
+      row-gap: 40px;
+    }
+  }
+}
+

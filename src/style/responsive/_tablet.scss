@@ -10,8 +10,21 @@
   }
 
   .account{
-
     padding: 2rem;
+
+    .search{
+      margin-bottom: 2rem;
+    }
+
+    .search__input{
+      padding: 1rem;
+      font-size: 20px;
+    }
+
+    .search__btn{
+      padding: 1rem;
+      font-size: 20px;
+    }
 
     &__details{
       font-size: 2.5vw;
@@ -20,10 +33,10 @@
     &__url{
       font-size: 1.5vw;
     }
+  }
 
-    .additional{
-      text-align: left;
-    }
+  .additional{
+    text-align: left;
 
     .repo__container{
       display: grid;

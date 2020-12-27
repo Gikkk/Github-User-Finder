@@ -6,6 +6,27 @@
   background: $bg;
   font-size: 1rem;
 
+  .search{
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .search__input{
+    outline: none;
+    padding: 0.3rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .search__btn{
+    outline: none;
+    padding: 0.3rem;
+    border: none;
+    color: $primary-color;
+    background: $secondary-color;
+    border-radius: 0 5px 5px 0;
+  }
+
   // profile link
   &__link{
     text-align: center;
@@ -37,63 +58,5 @@
     padding-left: 3em;
     color: rgb(11, 16, 43);
     font-weight: 700;
-  }
-
-  .additional{
-    text-align: center;
-    font-family: $primary-font;
-  }
-
-  &__repo{
-    color: $secondary-color;
-    margin: 3rem 0 1rem 0;
-  }
-
-  .repo__container{
-    display: grid;
-    row-gap: 2rem;
-  }
-
-  .repo__items{
-    font-family: $secondary-font;
-    background: rgb(114, 70, 70);
-    padding: 1rem 0;
-    border-radius: 10px;
-  }
-
-  .repo__btn{
-    color: $secondary-color;
-    font-family: $primary-font;
-    font-size: 1rem;
-  }
-
-  &__followers{
-    color: $secondary-color;
-    margin: 3rem 0 1rem 0;
-  }
-
-  &__following{
-    color:  $secondary-color;
-    margin: 3rem 0 1rem 0;
-  }
-
-  .follow__items{
-    margin-top: 4rem;
-  }
-
-  .follow__header{
-    font-family: $secondary-font;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-  }
-
-  .follow__img{
-    width: 100%;
-    border-radius: 50%;
-    object-fit: contain;
-  }
-
-  .follow__btn{
-    color: $secondary-color;
   }
 }

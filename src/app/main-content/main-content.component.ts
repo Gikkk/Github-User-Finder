@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { HttpService} from './main-content.service';
 
 @Component({
@@ -11,20 +10,17 @@ export class MainContentComponent implements OnInit {
 
   constructor(private httpService: HttpService) {}
 
+  value: any;
+
+  update(value: string) {
+    this.value = value;
+    console.log(value);
+  }
+
   // first data
   onLoadData() {
     this.httpService.onLoadData();
   }
-  getRepo(){
-    this.httpService.getRepo();
-  }
-  getFollowers(){
-    this.httpService.getFollowers();
-  }
-  getFollowing(){
-    this.httpService.getFollowing();
-  }
-
 
   ngOnInit(){
     this.onLoadData();

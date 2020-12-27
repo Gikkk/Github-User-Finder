@@ -1,0 +1,58 @@
+.additional{
+  text-align: center;
+  font-family: $primary-font;
+
+  .account__repo{
+    color: $secondary-color;
+    margin: 3rem 0 1rem 0;
+  }
+
+  .repo__container{
+    display: grid;
+    row-gap: 2rem;
+  }
+
+  .repo__items{
+    font-family: $secondary-font;
+    background: rgb(114, 70, 70);
+    padding: 1rem 0;
+    border-radius: 10px;
+  }
+
+  .repo__btn{
+    color: $secondary-color;
+    font-family: $primary-font;
+    font-size: 1rem;
+  }
+
+  .account__followers{
+    color: $secondary-color;
+    margin: 3rem 0 1rem 0;
+  }
+
+  .account__following{
+    color:  $secondary-color;
+    margin: 3rem 0 1rem 0;
+  }
+
+  .follow__items{
+    margin-top: 4rem;
+  }
+
+  .follow__header{
+    font-family: $secondary-font;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .follow__img{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+
+  .follow__btn{
+    color: $secondary-color;
+  }
+}
+

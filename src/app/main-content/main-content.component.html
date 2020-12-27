@@ -1,4 +1,8 @@
 <main class="account">
+  <article class="search">
+    <input #box class="search__input" value="gikkk" (keyup.enter)="update(box.value)">
+    <button class="search__btn" (click)="update(box.value)">Search</button>
+  </article>
   <article class="container">
     <section class="account__link">
       <a href="" class="account__url" target="_blanck">
@@ -27,27 +31,5 @@
       </section>
     </section>
   </article>
-  <article class="additional">
-    <section>
-      <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
-      <button (click) = "getRepo()" class="main__btn">SHOW MORE</button>
-      <section class="repo__container">
-        <!-- repo list -->
-      </section>
-    </section>
-    <section>
-      <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
-      <button (click) = 'getFollowers()' class="main__btn">SHOW MORE</button>
-      <section class="followers__container">
-        <!-- followers list here -->
-      </section>
-    </section>
-    <section>
-      <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
-      <button (click) = 'getFollowing()' class="main__btn">SHOW MORE</button>
-      <section class="following__container">
-        <!-- followers list here -->
-      </section>
-    </section>
-  </article>
+  <app-additional></app-additional>
 </main>
