@@ -10,12 +10,6 @@ export class MainContentComponent implements OnInit {
 
   constructor(private httpService: HttpService) {}
 
-  value: any;
-
-  update(value: string) {
-    this.value = value;
-    console.log(value);
-  }
 
   // first data
   onLoadData() {

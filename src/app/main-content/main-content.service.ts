@@ -3,13 +3,22 @@ import { HttpClient} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class HttpService{
+
   constructor(private http: HttpClient) {
   }
+  userInput = 'gikkk';
+  info = `https://api.github.com/users/${this.userInput}`;
+  repo = `https://api.github.com/users/${this.userInput}/repos`;
+  followers = `https://api.github.com/users/${this.userInput}/followers`;
+  following = `https://api.github.com/users/${this.userInput}/following`;
 
-  info = `https://api.github.com/users/null`;
-  repo = "https://api.github.com/users/null/repos";
-  followers = "https://api.github.com/users/null/followers";
-  following = "https://api.github.com/users/null/following";
+  test(){
+    this.userInput = 'vaxosv'
+    this.info = `https://api.github.com/users/${this.userInput}`;
+
+    this.onLoadData();
+  }
+
 
   onLoadData(){
     this.http.get(this.info)
@@ -32,8 +41,6 @@ export class HttpService{
       if(info.location === null){
         document.querySelector(".account__location--highlighted").textContent = 'Not mentioned';
       }
-
-
     }, error => {
       console.log(error);
     })

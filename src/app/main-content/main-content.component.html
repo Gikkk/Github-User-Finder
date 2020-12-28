@@ -1,7 +1,9 @@
 <main class="account">
   <article class="search">
-    <input #box class="search__input" value="gikkk" (keyup.enter)="update(box.value)">
-    <button class="search__btn" (click)="update(box.value)">Search</button>
+    <!-- (keyup.enter)="httpService.update(box.value)" -->
+    <!-- (click)="httpService.update(box.value)" -->
+    <input type="text" class="search__input" placeholder="e.g. vaxosv">
+    <button class="search__btn" (click)="httpService.test()">Search</button>
   </article>
   <article class="container">
     <section class="account__link">
