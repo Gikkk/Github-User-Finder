@@ -8,6 +8,14 @@
 
   .search{
     text-align: center;
+  }
+
+  .search__error{
+    font-size: 10px;
+    color: rgb(228, 46, 0);
+  }
+
+  .search__bar{
     margin-bottom: 1rem;
   }
 

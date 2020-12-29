@@ -1,8 +1,11 @@
 <main class="account">
 
   <article class="search">
-    <input type="text" #input  class="search__input" placeholder="e.g. vaxosv" (keyup.enter)="getUserInput(input.value)">
-    <button class="search__btn" (click)="getUserInput(input.value)">Search</button>
+    <p class="search__error"></p>
+    <section class="search__bar">
+      <input type="text" #input  class="search__input" placeholder="e.g. vaxosv" (keyup.enter)="getUserInput(input.value)">
+      <button class="search__btn" (click)="getUserInput(input.value)">Search</button>
+    </section>
   </article>
 
   <article class="container">
@@ -44,14 +47,14 @@
     </section>
     <section>
       <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
-      <button (click)='getFollowers()' class="main__btn">SHOW MORE</button>
+      <button (click)='getFollowers()' class="main__btn followers__btn">SHOW MORE</button>
       <section class="followers__container">
         <!-- followers list here -->
       </section>
     </section>
     <section>
       <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
-      <button (click)='getFollowing()' class="main__btn">SHOW MORE</button>
+      <button (click)='getFollowing()' class="main__btn following__btn">SHOW MORE</button>
       <section class="following__container">
         <!-- followers list here -->
       </section>

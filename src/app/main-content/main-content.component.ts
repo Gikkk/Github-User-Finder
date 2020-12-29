@@ -11,23 +11,11 @@ export class MainContentComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
-
   userInput = 'gikkk';
   info = `https://api.github.com/users/${this.userInput}`;
   repo = `https://api.github.com/users/${this.userInput}/repos`;
   followers = `https://api.github.com/users/${this.userInput}/followers`;
   following = `https://api.github.com/users/${this.userInput}/following`;
-
-
-  getUserInput(value){
-    this.userInput = value;
-    this.info = `https://api.github.com/users/${this.userInput}`;
-    this.repo = `https://api.github.com/users/${this.userInput}/repos`;
-    this.followers = `https://api.github.com/users/${this.userInput}/followers`;
-    this.following = `https://api.github.com/users/${this.userInput}/following`;
-
-    this.onLoadData();
-  }
 
   onLoadData(){
     this.http.get(this.info)
@@ -51,7 +39,7 @@ export class MainContentComponent implements OnInit {
         document.querySelector(".account__location--highlighted").textContent = 'Not mentioned';
       }
     }, error => {
-      console.log(error.statusText);
+      document.querySelector('.search__error').textContent = `Search field is empty or user ${error.statusText}`
     })
   }
 
@@ -60,6 +48,14 @@ export class MainContentComponent implements OnInit {
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
       const repoContainer = document.querySelector('.repo__container');
+
+      let t = document.querySelector('.main__btn');
+      if(t.textContent === "SHOW MORE"){
+        t.textContent = "SHOW LESS";
+      }else if(t.textContent === "SHOW LESS"){
+        t.textContent = "SHOW MORE";
+        document.querySelector('.repo__container').classList.toggle('showHide');
+      }
 
       repoInfo.forEach(repo => {
         const repoList = document.createElement('section');
@@ -81,6 +77,13 @@ export class MainContentComponent implements OnInit {
       const followersInfo: any =  responseData;
       const followersContainer = document.querySelector('.followers__container');
 
+      let t = document.querySelector('.followers__btn');
+      if(t.textContent === "SHOW MORE"){
+        t.textContent = "SHOW LESS";
+      }else if(t.textContent === "SHOW LESS"){
+        t.textContent = "SHOW MORE";
+      }
+
       followersInfo.forEach(followers => {
         const followersList = document.createElement('section');
         followersList.classList.add('follow__items');
@@ -101,6 +104,13 @@ export class MainContentComponent implements OnInit {
       const followingInfo: any =  responseData;
       const followingContainer = document.querySelector('.following__container');
 
+      let t = document.querySelector('.following__btn');
+      if(t.textContent === "SHOW MORE"){
+        t.textContent = "SHOW LESS";
+      }else if(t.textContent === "SHOW LESS"){
+        t.textContent = "SHOW MORE";
+      }
+
       followingInfo.forEach(following => {
         const followingList = document.createElement('section');
         followingList.classList.add('follow__items');
@@ -113,6 +123,16 @@ export class MainContentComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  getUserInput(value){
+    this.userInput = value;
+    this.info = `https://api.github.com/users/${this.userInput}`;
+    this.repo = `https://api.github.com/users/${this.userInput}/repos`;
+    this.followers = `https://api.github.com/users/${this.userInput}/followers`;
+    this.following = `https://api.github.com/users/${this.userInput}/following`;
+
+    this.onLoadData();
   }
 
   ngOnInit(){
