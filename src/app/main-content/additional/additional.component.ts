@@ -15,6 +15,11 @@ export class AdditionalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  actionMethod($event: MouseEvent) {
+    ($event.target as HTMLButtonElement).disabled = true;
+    // Do actions.
+  }
+
   getRepo(){
     this.http.get(this.service.repo)
     .subscribe(responseData =>{

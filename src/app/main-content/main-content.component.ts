@@ -40,7 +40,7 @@ export class MainContentComponent implements OnInit {
         document.querySelector(".account__location--highlighted").textContent = 'Not mentioned';
       }
     }, error => {
-      document.querySelector('.search__error').textContent = `Search field is empty or user ${error.statusText}`
+      document.querySelector('.search__error').textContent = `Search field is Empty or user ${error.statusText}`
     })
   }
 
