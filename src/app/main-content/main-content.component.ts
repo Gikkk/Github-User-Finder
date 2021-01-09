@@ -9,14 +9,17 @@ import { UserInputService } from './user-input.service';
 })
 export class MainContentComponent implements OnInit {
 
-  info;
-
   constructor(private http: HttpClient, private service: UserInputService) {
-    this.info = service.userInput;
+  }
+
+  getUserInput(value){
+    this.service.getUserInput(value);
+
+    this.onLoadData();
   }
 
   onLoadData(){
-    this.http.get(this.info)
+    this.http.get(this.service.info)
     .subscribe(responseData =>{
       let info: any = responseData;
       document.querySelector(".account__avatar").innerHTML = `<img src="${info.avatar_url}" class="account__avatar-highlighted" alt="avatar" >`

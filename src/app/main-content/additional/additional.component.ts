@@ -8,21 +8,15 @@ import { UserInputService } from '../user-input.service';
   styleUrls: ['./additional.component.scss']
 })
 export class AdditionalComponent implements OnInit {
-  following: string;
-  followers: string;
-  repo: string;
 
   constructor(private http: HttpClient, private service: UserInputService) {
-    this.repo = service.repo;
-    this.followers = service.followers;
-    this.following = service.following;
   }
 
   ngOnInit(): void {
   }
 
   getRepo(){
-    this.http.get(this.repo)
+    this.http.get(this.service.repo)
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
       const repoContainer = document.querySelector('.repo__container');
@@ -42,7 +36,7 @@ export class AdditionalComponent implements OnInit {
   }
 
   getFollowers(){
-    this.http.get(this.followers)
+    this.http.get(this.service.followers)
     .subscribe(responseData =>{
       const followersInfo: any =  responseData;
       const followersContainer = document.querySelector('.followers__container');
@@ -62,7 +56,7 @@ export class AdditionalComponent implements OnInit {
   }
 
   getFollowing(){
-    this.http.get(this.following)
+    this.http.get(this.service.following)
     .subscribe(responseData =>{
       const followingInfo: any =  responseData;
       const followingContainer = document.querySelector('.following__container');
