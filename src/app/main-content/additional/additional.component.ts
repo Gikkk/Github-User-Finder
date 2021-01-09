@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { UserInputService } from '../user-input.service';
 
 @Component({
   selector: 'app-additional',
@@ -7,31 +8,24 @@ import { HttpClient} from '@angular/common/http';
   styleUrls: ['./additional.component.scss']
 })
 export class AdditionalComponent implements OnInit {
+  following: string;
+  followers: string;
+  repo: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private service: UserInputService) {
+    this.repo = service.repo;
+    this.followers = service.followers;
+    this.following = service.following;
   }
 
   ngOnInit(): void {
   }
-
-  userInput = 'gikkk';
-  repo = `https://api.github.com/users/${this.userInput}/repos`;
-  followers = `https://api.github.com/users/${this.userInput}/followers`;
-  following = `https://api.github.com/users/${this.userInput}/following`;
 
   getRepo(){
     this.http.get(this.repo)
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
       const repoContainer = document.querySelector('.repo__container');
-
-      let t = document.querySelector('.main__btn');
-      if(t.textContent === "SHOW MORE"){
-        t.textContent = "SHOW LESS";
-      }else if(t.textContent === "SHOW LESS"){
-        t.textContent = "SHOW MORE";
-        document.querySelector('.repo__container').classList.toggle('showHide');
-      }
 
       repoInfo.forEach(repo => {
         const repoList = document.createElement('section');
@@ -53,13 +47,6 @@ export class AdditionalComponent implements OnInit {
       const followersInfo: any =  responseData;
       const followersContainer = document.querySelector('.followers__container');
 
-      let t = document.querySelector('.followers__btn');
-      if(t.textContent === "SHOW MORE"){
-        t.textContent = "SHOW LESS";
-      }else if(t.textContent === "SHOW LESS"){
-        t.textContent = "SHOW MORE";
-      }
-
       followersInfo.forEach(followers => {
         const followersList = document.createElement('section');
         followersList.classList.add('follow__items');
@@ -80,13 +67,6 @@ export class AdditionalComponent implements OnInit {
       const followingInfo: any =  responseData;
       const followingContainer = document.querySelector('.following__container');
 
-      let t = document.querySelector('.following__btn');
-      if(t.textContent === "SHOW MORE"){
-        t.textContent = "SHOW LESS";
-      }else if(t.textContent === "SHOW LESS"){
-        t.textContent = "SHOW MORE";
-      }
-
       followingInfo.forEach(following => {
         const followingList = document.createElement('section');
         followingList.classList.add('follow__items');
@@ -100,6 +80,5 @@ export class AdditionalComponent implements OnInit {
       console.log(error);
     })
   }
-
 
 }

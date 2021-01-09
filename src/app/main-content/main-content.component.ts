@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { UserInputService } from './user-input.service';
 
 @Component({
   selector: 'app-main-content',
@@ -8,11 +9,11 @@ import { HttpClient} from '@angular/common/http';
 })
 export class MainContentComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-  }
+  info;
 
-  userInput = 'gikkk';
-  info = `https://api.github.com/users/${this.userInput}`;
+  constructor(private http: HttpClient, private service: UserInputService) {
+    this.info = service.userInput;
+  }
 
   onLoadData(){
     this.http.get(this.info)
@@ -38,16 +39,6 @@ export class MainContentComponent implements OnInit {
     }, error => {
       document.querySelector('.search__error').textContent = `Search field is empty or user ${error.statusText}`
     })
-  }
-
-  getUserInput(value){
-    this.userInput = value;
-    this.info = `https://api.github.com/users/${this.userInput}`;
-    // this.repo = `https://api.github.com/users/${this.userInput}/repos`;
-    // this.followers = `https://api.github.com/users/${this.userInput}/followers`;
-    // this.following = `https://api.github.com/users/${this.userInput}/following`;
-
-    this.onLoadData();
   }
 
   ngOnInit(){
