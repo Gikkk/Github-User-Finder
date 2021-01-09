@@ -17,7 +17,6 @@ export class AdditionalComponent implements OnInit {
 
   actionMethod($event: MouseEvent) {
     ($event.target as HTMLButtonElement).disabled = true;
-    // Do actions.
   }
 
   getRepo(){
