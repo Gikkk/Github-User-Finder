@@ -1,4 +1,9 @@
 // supporting classes
-.showHide{
-  display: none;
+.invalid{
+  background: rgb(155, 67, 67);
+  border: 1px solid red;
+}
+
+.valid{
+  background: rgb(109, 187, 132);
 }

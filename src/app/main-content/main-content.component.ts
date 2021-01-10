@@ -33,6 +33,7 @@ export class MainContentComponent implements OnInit {
       document.querySelector(".account__updated--highlighted").textContent = `${info.updated_at.slice(0, 10)}`;
       document.querySelector(".account__url").setAttribute("href", `${info.html_url}`);
       document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
+      document.querySelector('.search__input').classList.add('valid');
       if(info.name === null){
         document.querySelector(".account__username--highlighted").textContent = 'Not mentioned';
       }
@@ -40,7 +41,8 @@ export class MainContentComponent implements OnInit {
         document.querySelector(".account__location--highlighted").textContent = 'Not mentioned';
       }
     }, error => {
-      document.querySelector('.search__error').textContent = `Search field is Empty or user ${error.statusText}`
+      document.querySelector('.search__error').textContent = `Search field is Empty or user ${error.statusText}`;
+      document.querySelector('.search__input').classList.add('invalid');
     })
   }
 
