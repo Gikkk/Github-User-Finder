@@ -26,6 +26,10 @@
     border-radius: 5px 0 0 5px;
   }
 
+  .search__input:focus{
+    background: rgb(109, 187, 132);
+  }
+
   .search__btn{
     outline: none;
     padding: 0.3rem;
@@ -47,7 +51,7 @@
   }
 
   &__avatar-highlighted{
-    width: 100%;
+    width: 90%;
     object-fit: contain;
     border-radius: 50%;
   }
