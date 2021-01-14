@@ -15,6 +15,13 @@ export class MainContentComponent implements OnInit {
   getUserInput(value){
     this.service.getUserInput(value);
 
+    let elem = document.querySelectorAll('.removable')
+    if(elem !== null){
+      elem.forEach(repo =>{
+        repo.parentNode.removeChild(repo);
+      })
+    }
+
     this.onLoadData();
   }
 
@@ -33,7 +40,6 @@ export class MainContentComponent implements OnInit {
       document.querySelector(".account__updated--highlighted").textContent = `${info.updated_at.slice(0, 10)}`;
       document.querySelector(".account__url").setAttribute("href", `${info.html_url}`);
       document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
-      document.querySelector('.search__input').classList.add('valid');
       if(info.name === null){
         document.querySelector(".account__username--highlighted").textContent = 'Not mentioned';
       }

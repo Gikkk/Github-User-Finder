@@ -16,7 +16,7 @@ export class AdditionalComponent implements OnInit {
   }
 
   actionMethod($event: MouseEvent) {
-    ($event.target as HTMLButtonElement).disabled = true;
+    // ($event.target as HTMLButtonElement).disabled = true;
   }
 
   getRepo(){
@@ -28,6 +28,7 @@ export class AdditionalComponent implements OnInit {
       repoInfo.forEach(repo => {
         const repoList = document.createElement('section');
         repoList.classList.add('repo__items')
+        repoList.classList.add('removable')
         repoList.innerHTML = `
           <h2>${repo.name.slice(0, 10)}</h2>
           <p>Main language: ${repo.language}</p>
@@ -48,6 +49,7 @@ export class AdditionalComponent implements OnInit {
       followersInfo.forEach(followers => {
         const followersList = document.createElement('section');
         followersList.classList.add('follow__items');
+        followersList.classList.add('removable')
         followersList.innerHTML = `
           <h3 class="follow__header">${followers.login}</h3>
           <img src="${followers.avatar_url}" alt="followers img" class="follow__img">
@@ -68,6 +70,7 @@ export class AdditionalComponent implements OnInit {
       followingInfo.forEach(following => {
         const followingList = document.createElement('section');
         followingList.classList.add('follow__items');
+        followingList.classList.add('removable');
         followingList.innerHTML = `
           <h3 class="follow__header">${following.login}</h3>
           <img src="${following.avatar_url}" alt="followers img" class="follow__img">
