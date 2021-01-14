@@ -12,8 +12,12 @@ export class MainContentComponent implements OnInit {
   constructor(private http: HttpClient, private service: UserInputService) {
   }
 
-  getUserInput(value){
+  getUserInput(value: string){
     this.service.getUserInput(value);
+
+    // actionMethod($event: MouseEvent) {
+    //   ($event.target as HTMLButtonElement).disabled = false;
+    // }
 
     let elem = document.querySelectorAll('.removable')
     if(elem !== null){
