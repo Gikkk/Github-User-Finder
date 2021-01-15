@@ -10,11 +10,9 @@
 
   <article class="container">
     <section class="account__link">
-      <a href="" class="account__url" target="_blanck">
-        <div class="account__avatar">
-          <!-- avatar img -->
-        </div>
-        Click on photo to see github profile
+      <a href="" class="account__url" [href] = 'hrefAttr' target="_blanck">
+        <img [src]="imageSrc" class="account__avatar-highlighted" alt="avatar">
+        <p>Click on photo to see github profile</p>
       </a>
     </section>
     <section class="account__details">

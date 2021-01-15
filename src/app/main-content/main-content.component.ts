@@ -16,6 +16,8 @@ export class MainContentComponent implements OnInit {
   createData: number;
   updateData: number;
   errorMessage: string;
+  hrefAttr: string;
+  imageSrc: string;
 
   constructor(private http: HttpClient, private service: UserInputService) {
   }
@@ -35,9 +37,13 @@ export class MainContentComponent implements OnInit {
     this.http.get(this.service.info)
     .subscribe(responseData =>{
       let info: any = responseData;
-      document.querySelector(".account__avatar").innerHTML = `<img src="${info.avatar_url}" class="account__avatar-highlighted" alt="avatar" >`
-      document.querySelector(".account__url").setAttribute("href", `${info.html_url}`);
 
+      document.querySelector(".account__followers--highlighted").textContent = `${info.followers}`;
+      document.querySelector(".account__repo--highlighted").textContent = `${info.public_repos}`;
+      document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
+
+      this.imageSrc = info.avatar_url;
+      this.hrefAttr = info.html_url;
       this.accountType = info.type;
       this.username = info.login;
       this.name = info.name;
@@ -45,9 +51,6 @@ export class MainContentComponent implements OnInit {
       this.createData = info.created_at.slice(0, 10);
       this.updateData = info.updated_at.slice(0, 10);
 
-      document.querySelector(".account__followers--highlighted").textContent = `${info.followers}`;
-      document.querySelector(".account__repo--highlighted").textContent = `${info.public_repos}`;
-      document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
       if(info.name === null){
         this.name = 'Not mentioned';
       }
