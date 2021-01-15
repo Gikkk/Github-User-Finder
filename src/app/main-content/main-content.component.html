@@ -1,7 +1,7 @@
 <main class="account">
 
   <article class="search">
-    <p class="search__error"></p>
+    <p class="search__error">{{errorMessage}}</p>
     <section class="search__bar">
       <input type="text" #input  class="search__input" placeholder="e.g. vaxosv" (keyup.enter)="getUserInput(input.value)">
       <button class="search__btn" (click)="getUserInput(input.value)">Search</button>
@@ -27,12 +27,12 @@
         <p class="account__updated">Last update:</p>
       </section>
       <section class="account__info--highlighted">
-        <p class="account__type--highlighted"></p>
-        <p class="account__login--highlighted"></p>
-        <p class="account__username--highlighted"></p>
-        <p class="account__location--highlighted"></p>
-        <p class="account__created--highlighted"></p>
-        <p class="account__updated--highlighted"></p>
+        <p class="account__type--highlighted">{{accountType}}</p>
+        <p class="account__login--highlighted">{{username}}</p>
+        <p class="account__username--highlighted">{{name}}</p>
+        <p class="account__location--highlighted">{{location}}</p>
+        <p class="account__created--highlighted">{{createData}}</p>
+        <p class="account__updated--highlighted">{{updateData}}</p>
       </section>
     </section>
   </article>

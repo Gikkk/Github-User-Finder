@@ -9,23 +9,25 @@ import { UserInputService } from './user-input.service';
 })
 export class MainContentComponent implements OnInit {
 
+  accountType: string
+  username: any;
+  name: any;
+  location: string;
+  createData: number;
+  updateData: number;
+  errorMessage: string;
+
   constructor(private http: HttpClient, private service: UserInputService) {
   }
 
   getUserInput(value: string){
     this.service.getUserInput(value);
-
-    // actionMethod($event: MouseEvent) {
-    //   ($event.target as HTMLButtonElement).disabled = false;
-    // }
-
     let elem = document.querySelectorAll('.removable')
     if(elem !== null){
       elem.forEach(repo =>{
         repo.parentNode.removeChild(repo);
       })
     }
-
     this.onLoadData();
   }
 
@@ -34,25 +36,26 @@ export class MainContentComponent implements OnInit {
     .subscribe(responseData =>{
       let info: any = responseData;
       document.querySelector(".account__avatar").innerHTML = `<img src="${info.avatar_url}" class="account__avatar-highlighted" alt="avatar" >`
-      document.querySelector(".account__created--highlighted").textContent = `${info.created_at.slice(0, 10)}`;
-      document.querySelector(".account__followers--highlighted").textContent = `${info.followers}`;
-      document.querySelector(".account__type--highlighted").textContent = `${info.type}`;
-      document.querySelector(".account__login--highlighted").textContent = `${info.login}`;
-      document.querySelector(".account__username--highlighted").textContent = `${info.name}`;
-      document.querySelector(".account__location--highlighted").textContent = `${info.location}`;
-      document.querySelector(".account__repo--highlighted").textContent = `${info.public_repos}`;
-      document.querySelector(".account__updated--highlighted").textContent = `${info.updated_at.slice(0, 10)}`;
       document.querySelector(".account__url").setAttribute("href", `${info.html_url}`);
+
+      this.accountType = info.type;
+      this.username = info.login;
+      this.name = info.name;
+      this.location = info.location;
+      this.createData = info.created_at.slice(0, 10);
+      this.updateData = info.updated_at.slice(0, 10);
+
+      document.querySelector(".account__followers--highlighted").textContent = `${info.followers}`;
+      document.querySelector(".account__repo--highlighted").textContent = `${info.public_repos}`;
       document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
       if(info.name === null){
-        document.querySelector(".account__username--highlighted").textContent = 'Not mentioned';
+        this.name = 'Not mentioned';
       }
       if(info.location === null){
-        document.querySelector(".account__location--highlighted").textContent = 'Not mentioned';
+        this.location = 'Not mentioned';
       }
     }, error => {
-      document.querySelector('.search__error').textContent = `Search field is Empty or user ${error.statusText}`;
-      document.querySelector('.search__input').classList.add('invalid');
+      this.errorMessage = `Search field is Empty or user ${error.statusText}`;
     })
   }
 

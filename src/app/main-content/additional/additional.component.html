@@ -1,7 +1,7 @@
 <article class="additional">
   <section>
     <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
-    <button (click)="getRepo(); actionMethod($event)" class="main__btn">SHOW MORE</button>
+    <button (click)="getRepo()" [disabled] = "disableBtn" class="main__btn">SHOW MORE</button>
     <section class="repo__container">
       <!-- repo list -->
     </section>

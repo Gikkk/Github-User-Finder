@@ -15,6 +15,8 @@ export class AdditionalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  disableBtn = false;
+
   actionMethod($event: MouseEvent) {
     ($event.target as HTMLButtonElement).disabled = true;
   }
