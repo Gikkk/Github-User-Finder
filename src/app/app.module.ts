@@ -19,7 +19,7 @@ import { UserInputService } from './main-content/user-input.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [UserInputService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

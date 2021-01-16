@@ -2,7 +2,7 @@
   <section>
     <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
     <button (click)="getRepo()" [disabled] = "disableBtn" class="main__btn">SHOW MORE</button>
-    <section class="repo__container">
+    <section class="repo__container" #repoContainer>
       <!-- repo list -->
     </section>
   </section>
