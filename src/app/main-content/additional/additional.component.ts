@@ -9,6 +9,9 @@ import { UserInputService } from '../user-input.service';
 })
 export class AdditionalComponent implements OnInit {
 
+  repoBtn = false;
+  followersBtn = false;
+  followingBtn = false;
   repoAmount: number;
   followersAmount: number;
   followingAmount: number;
@@ -30,6 +33,7 @@ export class AdditionalComponent implements OnInit {
     .subscribe(responseData =>{
       const repoInfo: any =  responseData;
       const repoContainer = this.repoContainer.nativeElement;
+      this.repoBtn = true;
 
       repoInfo.forEach(repo => {
         const repoList = this.renderer.createElement('section');
@@ -52,6 +56,7 @@ export class AdditionalComponent implements OnInit {
     .subscribe(responseData =>{
       const followersInfo: any =  responseData;
       const followersContainer = this.followersContainer.nativeElement;
+      this.followersBtn = true;
 
       followersInfo.forEach(followers => {
         const followersList = this.renderer.createElement('section');
@@ -74,6 +79,7 @@ export class AdditionalComponent implements OnInit {
     .subscribe(responseData =>{
       const followingInfo: any =  responseData;
       const followingContainer = this.followingContainer.nativeElement;
+      this.followingBtn = true;
 
       followingInfo.forEach(following => {
         const followingList = this.renderer.createElement('section');

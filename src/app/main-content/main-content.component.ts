@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { UserInputService } from './user-input.service';
-import {AdditionalComponent} from './additional/additional.component';
+import { AdditionalComponent } from './additional/additional.component';
 
 @Component({
   selector: 'app-main-content',
@@ -23,10 +23,14 @@ export class MainContentComponent implements OnInit {
   constructor(private http: HttpClient, private service: UserInputService) {
   }
 
+  @ViewChild(AdditionalComponent) additional: AdditionalComponent;
   getUserInput(value: string){
     this.service.getUserInput(value);
-    let elem = document.querySelectorAll('.removable');
+    this.additional.repoBtn = false;
+    this.additional.followersBtn = false;
+    this.additional.followingBtn = false;
 
+    let elem = document.querySelectorAll('.removable');
 
     if(elem !== null){
       elem.forEach(repo =>{
@@ -36,7 +40,6 @@ export class MainContentComponent implements OnInit {
     this.onLoadData();
   }
 
-  @ViewChild(AdditionalComponent) additional: AdditionalComponent;
   onLoadData(){
     this.http.get(this.service.info)
     .subscribe(responseData =>{
