@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { UserInputService } from './user-input.service';
+import {AdditionalComponent} from './additional/additional.component';
 
 @Component({
   selector: 'app-main-content',
@@ -24,7 +25,9 @@ export class MainContentComponent implements OnInit {
 
   getUserInput(value: string){
     this.service.getUserInput(value);
-    let elem = document.querySelectorAll('.removable')
+    let elem = document.querySelectorAll('.removable');
+
+
     if(elem !== null){
       elem.forEach(repo =>{
         repo.parentNode.removeChild(repo);
@@ -33,15 +36,15 @@ export class MainContentComponent implements OnInit {
     this.onLoadData();
   }
 
+  @ViewChild(AdditionalComponent) additional: AdditionalComponent;
   onLoadData(){
     this.http.get(this.service.info)
     .subscribe(responseData =>{
       let info: any = responseData;
 
-      document.querySelector(".account__followers--highlighted").textContent = `${info.followers}`;
-      document.querySelector(".account__repo--highlighted").textContent = `${info.public_repos}`;
-      document.querySelector(".account__following--highlighted").textContent = `${info.following}`;
-
+      this.additional.repoAmount = info.public_repos;
+      this.additional.followersAmount = info.followers;
+      this.additional.followingAmount = info.following;
       this.imageSrc = info.avatar_url;
       this.hrefAttr = info.html_url;
       this.accountType = info.type;

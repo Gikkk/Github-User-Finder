@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { HeaderComponent } from './header/header.component';
 import { AdditionalComponent } from './main-content/additional/additional.component';
-import { UserInputService } from './main-content/user-input.service';
 
 @NgModule({
   declarations: [

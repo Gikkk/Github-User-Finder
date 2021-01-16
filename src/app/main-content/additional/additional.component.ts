@@ -9,24 +9,22 @@ import { UserInputService } from '../user-input.service';
 })
 export class AdditionalComponent implements OnInit {
 
+  repoAmount: number;
+  followersAmount: number;
+  followingAmount: number;
+
   constructor(
     private http: HttpClient,
     private service: UserInputService,
     private renderer:Renderer2,
     ){
   }
-  @ViewChild('repoContainer', { static: false }) repoContainer: ElementRef;
-  @ViewChild('followersContainer', { static: false }) followersContainer: ElementRef;
-  @ViewChild('followingContainer', { static: false }) followingContainer: ElementRef;
+
 
   ngOnInit(): void {
   }
 
-  // disableBtn = false;
-  // actionMethod($event: MouseEvent) {
-  //   ($event.target as HTMLButtonElement).disabled = true;
-  // }
-
+  @ViewChild('repoContainer', { static: false }) repoContainer: ElementRef;
   getRepo(){
     this.http.get(this.service.repo)
     .subscribe(responseData =>{
@@ -48,6 +46,7 @@ export class AdditionalComponent implements OnInit {
     })
   }
 
+  @ViewChild('followersContainer', { static: false }) followersContainer: ElementRef;
   getFollowers(){
     this.http.get(this.service.followers)
     .subscribe(responseData =>{
@@ -69,6 +68,7 @@ export class AdditionalComponent implements OnInit {
     })
   }
 
+  @ViewChild('followingContainer', { static: false }) followingContainer: ElementRef;
   getFollowing(){
     this.http.get(this.service.following)
     .subscribe(responseData =>{
