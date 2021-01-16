@@ -1,22 +1,22 @@
 <article class="additional">
   <section>
     <p class="account__repo">Repositories: <span class="account__repo--highlighted"></span></p>
-    <button (click)="getRepo()" [disabled] = "disableBtn" class="main__btn">SHOW MORE</button>
+    <button (click)="getRepo()" class="main__btn">SHOW MORE</button>
     <section class="repo__container" #repoContainer>
       <!-- repo list -->
     </section>
   </section>
   <section>
     <p class="account__followers">Followers: <span class="account__followers--highlighted"></span></p>
-    <button (click)='getFollowers(); actionMethod($event)' class="main__btn followers__btn">SHOW MORE</button>
-    <section class="followers__container">
+    <button (click)='getFollowers()' class="main__btn followers__btn">SHOW MORE</button>
+    <section class="followers__container" #followersContainer>
       <!-- followers list here -->
     </section>
   </section>
   <section>
     <p class="account__following">Following: <span class="account__following--highlighted"></span></p>
-    <button (click)='getFollowing(); actionMethod($event)' class="main__btn following__btn">SHOW MORE</button>
-    <section class="following__container">
+    <button (click)='getFollowing()' class="main__btn following__btn">SHOW MORE</button>
+    <section class="following__container" #followingContainer>
       <!-- followers list here -->
     </section>
   </section>

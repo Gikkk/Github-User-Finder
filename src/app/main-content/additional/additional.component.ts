@@ -16,14 +16,16 @@ export class AdditionalComponent implements OnInit {
     ){
   }
   @ViewChild('repoContainer', { static: false }) repoContainer: ElementRef;
+  @ViewChild('followersContainer', { static: false }) followersContainer: ElementRef;
+  @ViewChild('followingContainer', { static: false }) followingContainer: ElementRef;
 
   ngOnInit(): void {
   }
 
-  disableBtn = false;
-  actionMethod($event: MouseEvent) {
-    ($event.target as HTMLButtonElement).disabled = true;
-  }
+  // disableBtn = false;
+  // actionMethod($event: MouseEvent) {
+  //   ($event.target as HTMLButtonElement).disabled = true;
+  // }
 
   getRepo(){
     this.http.get(this.service.repo)
@@ -50,7 +52,7 @@ export class AdditionalComponent implements OnInit {
     this.http.get(this.service.followers)
     .subscribe(responseData =>{
       const followersInfo: any =  responseData;
-      const followersContainer = document.querySelector('.followers__container');
+      const followersContainer = this.followersContainer.nativeElement;
 
       followersInfo.forEach(followers => {
         const followersList = this.renderer.createElement('section');
@@ -71,17 +73,17 @@ export class AdditionalComponent implements OnInit {
     this.http.get(this.service.following)
     .subscribe(responseData =>{
       const followingInfo: any =  responseData;
-      const followingContainer = document.querySelector('.following__container');
+      const followingContainer = this.followingContainer.nativeElement;
 
       followingInfo.forEach(following => {
-        const followingList = document.createElement('section');
-        followingList.classList.add('follow__items');
-        followingList.classList.add('removable');
+        const followingList = this.renderer.createElement('section');
+        this.renderer.addClass(followingList, 'follow__items');
+        this.renderer.addClass(followingList, 'removable');
         followingList.innerHTML = `
           <h3 class="follow__header">${following.login}</h3>
           <img src="${following.avatar_url}" alt="followers img" class="follow__img">
           <a href="${following.html_url}" target="_blank" class="follow__btn">More info<a/>`
-        followingContainer.appendChild(followingList);
+        this.renderer.appendChild(followingContainer, followingList);
       })
     }, error => {
       console.log(error);
