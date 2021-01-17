@@ -31,12 +31,12 @@ export class MainContentComponent implements OnInit {
     this.additional.followingBtn = false;
 
     let elem = document.querySelectorAll('.removable');
-
     if(elem !== null){
       elem.forEach(repo =>{
         repo.parentNode.removeChild(repo);
       })
     }
+
     this.onLoadData();
   }
 
