@@ -22,8 +22,9 @@
   .search__input{
     outline: none;
     padding: 0.3rem;
+    margin-right: 5px;
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 16px;
   }
 
   .search__btn{
@@ -31,8 +32,13 @@
     padding: 0.3rem;
     border: none;
     color: $primary-color;
-    background: rgb(165, 115, 115);
-    border-radius: 0 5px 5px 0;
+    border-radius: 16px;
+    transition: background 1s ease-out;
+    background: rgb(70 70 120);
+
+    &:hover{
+      background: rgb(100 100 100);
+    }
   }
 
   // profile link
