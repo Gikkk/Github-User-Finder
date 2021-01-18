@@ -17,6 +17,10 @@
     color: rgb(241, 124, 103);
     visibility: hidden;
   }
+  // supporting
+  .visible{
+    visibility: visible;
+  }
 
   .search__bar{
     margin-bottom: 1rem;
@@ -27,6 +31,10 @@
     margin-right: 5px;
     width: 190px;
     padding:  0.5rem 0.5rem 0.5rem 1.5rem;
+  }
+  // supporting
+  .invalid{
+    background: rgb(241, 124, 103);
   }
 
   .search__btn{
