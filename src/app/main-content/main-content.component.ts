@@ -20,15 +20,19 @@ export class MainContentComponent implements OnInit {
   hrefAttr: string;
   imageSrc: string;
 
-  constructor(private http: HttpClient, private service: UserInputService) {
+  constructor(private http: HttpClient, private service: UserInputService, private renderer: Renderer2) {
   }
 
+  @ViewChild("errorM") errorM: ElementRef;
+  @ViewChild("input") input: ElementRef;
   @ViewChild(AdditionalComponent) additional: AdditionalComponent;
   getUserInput(value: string){
     this.service.getUserInput(value);
     this.additional.repoBtn = false;
     this.additional.followersBtn = false;
     this.additional.followingBtn = false;
+    this.renderer.removeClass(this.input.nativeElement, 'invalid');
+    this.renderer.removeClass(this.errorM.nativeElement, 'visible');
 
     let elem = document.querySelectorAll('.removable');
     if(elem !== null){
@@ -64,7 +68,9 @@ export class MainContentComponent implements OnInit {
         this.location = 'Not mentioned';
       }
     }, error => {
-      this.errorMessage = `Search field is Empty or user ${error.statusText}`;
+      this.errorMessage = `${error.statusText}`;
+      this.renderer.addClass(this.input.nativeElement, 'invalid');
+      this.renderer.addClass(this.errorM.nativeElement, 'visible');
     })
   }
 

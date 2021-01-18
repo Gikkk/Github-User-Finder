@@ -22,7 +22,19 @@
   .repo__btn{
     color: $secondary-color;
     font-family: $primary-font;
+    display: inline-block;
     font-size: 1rem;
+    transition: color 1s, text-decoration 1s, transform 1s;
+
+    &:hover{
+      color: $primary-color;
+      text-decoration: none;
+      -webkit-transform: rotateZ(5deg);
+      -moz-transform: rotateZ(5deg);
+      -ms-transform: rotateZ(5deg);
+      -o-transform: rotateZ(5deg);
+      transform: rotateZ(5deg);
+    }
   }
 
   .account__followers{
