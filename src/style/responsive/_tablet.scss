@@ -18,6 +18,7 @@
 
     .search__input{
       padding: 1rem 1rem 1rem 2rem;
+      width: 300px;
       font-size: 20px;
     }
 
@@ -38,21 +39,7 @@
   .additional{
     text-align: left;
 
-    .repo__container{
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 20px;
-      text-align: center;
-    }
-
-    .following__container{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 20px;
-      row-gap: 20px;
-      text-align: center;
-    }
-
-    .followers__container{
+    .container--positioning{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       column-gap: 20px;

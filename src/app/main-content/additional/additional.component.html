@@ -2,21 +2,21 @@
   <section>
     <p class="account__repo">Repositories: <span>{{repoAmount}}</span></p>
     <button (click)="getRepo()" [disabled] = 'repoBtn' class="main__btn">SHOW MORE</button>
-    <section class="repo__container" #repoContainer >
+    <section class="container--positioning" #repoContainer >
       <!-- repo list -->
     </section>
   </section>
   <section>
     <p class="account__followers">Followers: <span>{{followersAmount}}</span></p>
     <button (click)='getFollowers()' [disabled] = 'followersBtn' class="main__btn followers__btn">SHOW MORE</button>
-    <section class="followers__container" #followersContainer>
+    <section class="container--positioning" #followersContainer>
       <!-- followers list here -->
     </section>
   </section>
   <section>
     <p class="account__following">Following: <span>{{followingAmount}}</span></p>
     <button (click)='getFollowing()' [disabled] = 'followingBtn' class="main__btn following__btn">SHOW MORE</button>
-    <section class="following__container" #followingContainer>
+    <section class="container--positioning" #followingContainer>
       <!-- followers list here -->
     </section>
   </section>
