@@ -2,7 +2,7 @@
   text-align: center;
   font-family: $primary-font;
 
-  .account__repo{
+  .account__shared{
     color: $secondary-color;
     margin: 3rem 0 1rem 0;
   }
@@ -31,16 +31,6 @@
       -o-transform: rotateZ(5deg);
       transform: rotateZ(5deg);
     }
-  }
-
-  .account__followers{
-    color: $secondary-color;
-    margin: 3rem 0 1rem 0;
-  }
-
-  .account__following{
-    color:  $secondary-color;
-    margin: 3rem 0 1rem 0;
   }
 
   .follow__items{

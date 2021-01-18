@@ -1,22 +1,22 @@
 <article class="additional">
   <section>
-    <p class="account__repo">Repositories: <span>{{repoAmount}}</span></p>
+    <p class="account__shared">Repositories: <span>{{repoAmount}}</span></p>
     <button (click)="getRepo()" [disabled] = 'repoBtn' class="main__btn">SHOW MORE</button>
-    <section class="container--positioning" #repoContainer >
+    <section class="shared__container" #repoContainer >
       <!-- repo list -->
     </section>
   </section>
   <section>
-    <p class="account__followers">Followers: <span>{{followersAmount}}</span></p>
+    <p class="account__shared">Followers: <span>{{followersAmount}}</span></p>
     <button (click)='getFollowers()' [disabled] = 'followersBtn' class="main__btn followers__btn">SHOW MORE</button>
-    <section class="container--positioning" #followersContainer>
+    <section class="shared__container" #followersContainer>
       <!-- followers list here -->
     </section>
   </section>
   <section>
-    <p class="account__following">Following: <span>{{followingAmount}}</span></p>
+    <p class="account__shared">Following: <span>{{followingAmount}}</span></p>
     <button (click)='getFollowing()' [disabled] = 'followingBtn' class="main__btn following__btn">SHOW MORE</button>
-    <section class="container--positioning" #followingContainer>
+    <section class="shared__container" #followingContainer>
       <!-- followers list here -->
     </section>
   </section>

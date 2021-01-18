@@ -10,19 +10,11 @@
 
   .additional{
 
-    .account__repo{
-      font-size: 2rem;
+    .account__shared{
+      font-size: 1.5rem;
     }
 
-    .account__followers{
-      font-size: 2rem;
-    }
-
-    .account__following{
-      font-size: 2rem;
-    }
-
-    .container--positioning{
+    .shared__container{
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -33,20 +25,8 @@
     padding: 7rem;
   }
 
-  .account__repo{
-    font-size: 2rem;
-  }
-
-  .account__followers{
-    font-size: 2rem;
-  }
-
-  .account__following{
-    font-size: 2rem;
-  }
-
   .additional{
-    .container--positioning{
+    .shared__container{
       grid-template-columns: repeat(5, 1fr);
       column-gap: 40px;
       row-gap: 40px;
