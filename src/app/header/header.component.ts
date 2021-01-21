@@ -12,4 +12,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  header = "Github User Finder"
+
 }

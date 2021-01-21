@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { UserInputService } from './user-input.service';
 import { AdditionalComponent } from './additional/additional.component';
@@ -8,7 +8,7 @@ import { AdditionalComponent } from './additional/additional.component';
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss']
 })
-export class MainContentComponent implements OnInit {
+export class MainContentComponent implements AfterViewInit {
 
   accountType: string
   username: any;
@@ -74,7 +74,7 @@ export class MainContentComponent implements OnInit {
     })
   }
 
-  ngOnInit(){
+  ngAfterViewInit(){
     this.onLoadData();
   }
 }
