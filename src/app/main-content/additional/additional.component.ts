@@ -42,7 +42,7 @@ export class AdditionalComponent implements OnInit {
         repoList.innerHTML = `
           <h2>${repo.name.slice(0, 10)}</h2>
           <p>Main language: ${repo.language}</p>
-          <a href="${repo.html_url}" class="repo__btn" target="_blank">More info<a/>`
+          <a href="${repo.html_url}" class="more__btn--shared" target="_blank">More info<a/>`
         this.renderer.appendChild(repoContainer, repoList);
       })
     }, error => {
@@ -65,7 +65,7 @@ export class AdditionalComponent implements OnInit {
         followersList.innerHTML = `
           <h3 class="follow__header">${followers.login}</h3>
           <img src="${followers.avatar_url}" alt="followers img" class="follow__img">
-          <a href="${followers.html_url}" target="_blank" class="follow__btn">More info<a/>`
+          <a href="${followers.html_url}" target="_blank" class="more__btn--shared">More info<a/>`
         this.renderer.appendChild(followersContainer, followersList);
       })
     }, error => {
@@ -88,7 +88,7 @@ export class AdditionalComponent implements OnInit {
         followingList.innerHTML = `
           <h3 class="follow__header">${following.login}</h3>
           <img src="${following.avatar_url}" alt="followers img" class="follow__img">
-          <a href="${following.html_url}" target="_blank" class="follow__btn">More info<a/>`
+          <a href="${following.html_url}" target="_blank" class="more__btn--shared">More info<a/>`
         this.renderer.appendChild(followingContainer, followingList);
       })
     }, error => {

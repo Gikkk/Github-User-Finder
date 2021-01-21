@@ -15,7 +15,7 @@
     border-radius: 10px;
   }
 
-  .repo__btn{
+  .more__btn--shared{
     color: $secondary-color;
     font-family: $primary-font;
     display: inline-block;
@@ -50,10 +50,6 @@
     width: 100%;
     border-radius: 50%;
     object-fit: contain;
-  }
-
-  .follow__btn{
-    color: $secondary-color;
   }
 }
 
