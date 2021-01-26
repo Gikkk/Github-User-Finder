@@ -1,7 +1,7 @@
 <main class="account">
 
   <article class="search">
-    <p class="search__error" #errorM > Search field is Empty or user {{errorMessage}}</p>
+    <p class="search__error" #errorM >{{errorMessage}}</p>
     <section class="search__bar">
       <input type="text" #input  class="search__input" placeholder="e.g. vaxosv" (keyup.enter)="getUserInput(input.value)">
       <button class="search__btn" (click)="getUserInput(input.value)">Search</button>

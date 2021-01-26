@@ -68,7 +68,7 @@ export class MainContentComponent implements AfterViewInit {
         this.location = 'Not mentioned';
       }
     }, error => {
-      this.errorMessage = `${error.statusText}`;
+      this.errorMessage = `Search field is Empty or ${error.error.message}`;
       this.renderer.addClass(this.input.nativeElement, 'invalid');
       this.renderer.addClass(this.errorM.nativeElement, 'visible');
     })
