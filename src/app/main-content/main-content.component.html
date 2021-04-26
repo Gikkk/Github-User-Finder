@@ -1,39 +1,39 @@
 <main class="account">
 
-  <article class="search">
+  <section class="search">
     <p class="search__error" #errorM >{{errorMessage}}</p>
     <section class="search__bar">
       <input type="text" #input  class="search__input" placeholder="e.g. vaxosv" (keyup.enter)="getUserInput(input.value)">
       <button class="search__btn" (click)="getUserInput(input.value)">Search</button>
     </section>
-  </article>
+  </section>
 
-  <article class="container">
-    <section class="account__link">
+  <section class="container">
+    <div class="account__link">
       <a href="" class="account__url" [href] = 'hrefAttr' target="_blanck">
         <img [src]="imageSrc" class="account__avatar-highlighted" alt="avatar">
         <p>Click on photo to see github profile</p>
       </a>
-    </section>
-    <section class="account__details">
-      <section class="account__info">
+    </div>
+    <article class="account__details">
+      <div class="account__info">
         <p class="account__type">Account type:</p>
         <p class="account__login">Username:</p>
         <p class="account__username">Name:</p>
         <p class="account__location">Location:</p>
         <p class="account__created">Creation time:</p>
         <p class="account__updated">Last update:</p>
-      </section>
-      <section class="account__info--highlighted">
+      </div>
+      <div class="account__info--highlighted">
         <p class="account__type--highlighted">{{accountType}}</p>
         <p class="account__login--highlighted">{{username}}</p>
         <p class="account__username--highlighted">{{name}}</p>
         <p class="account__location--highlighted">{{location}}</p>
         <p class="account__created--highlighted">{{createData}}</p>
         <p class="account__updated--highlighted">{{updateData}}</p>
-      </section>
-    </section>
-  </article>
+      </div>
+    </article>
+  </section>
 
   <!-- additional info -->
   <app-additional></app-additional>

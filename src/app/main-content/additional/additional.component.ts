@@ -36,11 +36,11 @@ export class AdditionalComponent implements OnInit {
       this.repoBtn = true;
 
       repoInfo.forEach(repo => {
-        const repoList = this.renderer.createElement('section');
+        const repoList = this.renderer.createElement('article');
         this.renderer.addClass(repoList, 'repo__items');
         this.renderer.addClass(repoList, 'removable');
         repoList.innerHTML = `
-          <h2>${repo.name.slice(0, 10)}</h2>
+          <h3>${repo.name.slice(0, 10)}</h3>
           <p>Main language: ${repo.language}</p>
           <a href="${repo.html_url}" class="more__btn--shared" target="_blank">More info<a/>`
         this.renderer.appendChild(repoContainer, repoList);
@@ -82,7 +82,7 @@ export class AdditionalComponent implements OnInit {
       this.followingBtn = true;
 
       followingInfo.forEach(following => {
-        const followingList = this.renderer.createElement('section');
+        const followingList = this.renderer.createElement('article');
         this.renderer.addClass(followingList, 'follow__items');
         this.renderer.addClass(followingList, 'removable');
         followingList.innerHTML = `

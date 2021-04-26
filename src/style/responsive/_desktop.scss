@@ -4,8 +4,13 @@
     width: 100px;
   }
 
+  .header__svg{
+    height: 50px;
+    width: 50px;
+  }
+
   .account{
-    padding: 5rem;
+    padding: 160px 5rem 5rem 5rem;
   }
 
   .additional{
@@ -22,7 +27,7 @@
 
 @media(min-width: 1600px){
   .account{
-    padding: 7rem;
+    padding: 160px 7rem 7rem 7rem;
   }
 
   .additional{

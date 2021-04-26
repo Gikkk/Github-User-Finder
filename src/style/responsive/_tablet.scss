@@ -1,3 +1,7 @@
+.header{
+  font-size: 2vw;
+}
+
 @media(min-width: 640px){
   .header__text{
     font-size: 3vw;
@@ -10,7 +14,7 @@
   }
 
   .account{
-    padding: 2rem;
+    padding: 100px 2rem 2rem 2rem;
 
     .search__bar{
       margin-bottom: 2rem;

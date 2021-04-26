@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
-  header = "Github User Finder"
+  header = "Github User Finder";
+
+  scrollBack(): void {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  }
 
 }
